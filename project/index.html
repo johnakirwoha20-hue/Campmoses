@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camp Moses Junior Academy — Kamukalo, Kibale, Rakai District</title>
+<meta name="description" content="Camp Moses Junior Academy, Kamukalo — a nursery and primary school in Kibale, Rakai District, Uganda. Education is the key to success.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="img/badge.png">
+<style>
+  :root{
+    --navy:#152159;
+    --navy-ink:#0b1230;
+    --navy-soft:#233173;
+    --red:#c31d2b;
+    --red-deep:#8f1520;
+    --gold:#dfa23a;
+    --gold-soft:#f1cf94;
+    --cream:#faf5e8;
+    --paper:#fffdf7;
+    --ink:#25263a;
+    --muted:#61637c;
+    --line:#e7ddc6;
+    --shadow: 0 20px 45px -20px rgba(11,18,48,.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; margin:0; line-height:1.08; letter-spacing:-.01em;}
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--red);
+  }
+  p{color:var(--muted); line-height:1.7; margin:.9em 0 0;}
+  section{position:relative;}
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  /* ---------- laurel divider (signature motif) ---------- */
+  .laurels{display:flex; align-items:center; justify-content:center; gap:14px; margin:0 0 14px;}
+  .laurels svg{width:34px; height:30px; fill:var(--gold);}
+  .laurels svg.mirror{transform:scaleX(-1);}
+  .laurels .dot{width:7px; height:7px; border-radius:50%; background:var(--red);}
+
+  /* ---------- ribbon banner (signature motif) ---------- */
+  .ribbon{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--red);
+    color:#fff8ec;
+    padding:13px 34px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.02rem;
+    clip-path: polygon(0 0, 100% 0, 91% 50%, 100% 100%, 0 100%, 9% 50%);
+    box-shadow:0 12px 24px -10px rgba(143,21,32,.55);
+  }
+  .ribbon.navy{background:var(--navy); box-shadow:0 12px 24px -10px rgba(21,33,89,.5);}
+
+  /* ================= TOP BAR ================= */
+  .topbar{
+    background:var(--navy-ink);
+    color:#cfd4ef;
+    font-size:.8rem;
+  }
+  .topbar .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:8px 28px; flex-wrap:wrap; gap:6px;
+  }
+  .topbar a{opacity:.9;}
+  .topbar a:hover{opacity:1; color:var(--gold-soft);}
+  .topbar .items{display:flex; gap:22px; flex-wrap:wrap;}
+  .topbar .items span{display:inline-flex; align-items:center; gap:6px;}
+
+  /* ================= HEADER / NAV ================= */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,245,232,.92);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+    transition:box-shadow .3s ease;
+  }
+  header.site.scrolled{box-shadow:0 8px 22px -14px rgba(11,18,48,.3);}
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 28px;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{width:52px; height:52px;}
+  .brand .name{font-family:'Fraunces', serif; font-weight:600; font-size:1.08rem; color:var(--navy); line-height:1.15;}
+  .brand .name small{display:block; font-family:'Work Sans',sans-serif; font-weight:600; letter-spacing:.14em; font-size:.62rem; color:var(--red); text-transform:uppercase; margin-top:2px;}
+  nav.links{display:flex; gap:30px; align-items:center;}
+  nav.links a{
+    font-size:.92rem; font-weight:600; color:var(--navy);
+    position:relative; padding:4px 0;
+  }
+  nav.links a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:-2px; height:2px; background:var(--red);
+    transition:right .25s ease;
+  }
+  nav.links a:hover::after{right:0;}
+  .nav-cta{
+    background:var(--navy); color:#fff !important; padding:10px 20px; border-radius:3px;
+    font-weight:600; font-size:.85rem !important;
+  }
+  .nav-cta::after{display:none;}
+  .nav-cta:hover{background:var(--red);}
+  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .burger span{width:26px; height:2px; background:var(--navy);}
+  .mobile-menu{display:none; flex-direction:column; padding:6px 28px 22px; gap:16px; background:var(--paper); border-bottom:1px solid var(--line);}
+  .mobile-menu a{font-weight:600; color:var(--navy); font-size:1rem;}
+
+  @media (max-width:920px){
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .mobile-menu.open{display:flex;}
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex; align-items:center;
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero .bg{
+    position:absolute; inset:0;
+    background-image: linear-gradient(180deg, rgba(11,18,48,.55), rgba(11,18,48,.86) 65%, var(--navy-ink) 100%), url('img/building.jpg');
+    background-size:cover; background-position:center 30%;
+    filter:saturate(1.05);
+  }
+  .hero .bg::after{
+    content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(115deg, rgba(255,255,255,.025) 0 2px, transparent 2px 90px);
+  }
+  .hero-content{
+    position:relative; z-index:2; width:100%;
+    padding:150px 28px 90px;
+    max-width:1180px; margin:0 auto;
+    text-align:center;
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .hero-badge{width:120px; height:120px; margin-bottom:22px; filter:drop-shadow(0 14px 26px rgba(0,0,0,.45));}
+  .hero-content .eyebrow{color:var(--gold-soft); letter-spacing:.3em;}
+  .hero-content h1{
+    font-size:clamp(2.5rem, 6vw, 4.6rem);
+    margin-top:14px;
+    color:#fdf9ee;
+    text-shadow:0 4px 24px rgba(0,0,0,.35);
+  }
+  .hero-content .loc{
+    margin-top:14px; font-family:'Work Sans',sans-serif; letter-spacing:.16em; text-transform:uppercase;
+    font-size:.85rem; color:#d9deef; font-weight:600;
+  }
+  .hero-content .ribbon{margin-top:32px; font-size:1.15rem;}
+  .hero-ctas{display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; justify-content:center;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 30px; border-radius:2px; font-weight:600; font-size:.95rem;
+    border:1.5px solid transparent; cursor:pointer;
+  }
+  .btn-gold{background:var(--gold); color:var(--navy-ink);}
+  .btn-gold:hover{background:#f0b955;}
+  .btn-outline{border-color:rgba(255,255,255,.55); color:#fff;}
+  .btn-outline:hover{background:rgba(255,255,255,.12); border-color:#fff;}
+  .scroll-cue{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+    color:#cfd4ef; font-size:.72rem; letter-spacing:.24em; text-transform:uppercase;
+    display:flex; flex-direction:column; align-items:center; gap:8px; z-index:2;
+  }
+  .scroll-cue .line{width:1px; height:34px; background:linear-gradient(#fff, transparent); animation:cue 1.8s infinite;}
+  @keyframes cue{0%{opacity:.2; transform:scaleY(.4); transform-origin:top;} 50%{opacity:1; transform:scaleY(1);} 100%{opacity:.2; transform:scaleY(.4);}}
+
+  /* ================= SECTION HEADERS ================= */
+  .sec-head{text-align:center; max-width:640px; margin:0 auto 54px;}
+  .sec-head h2{font-size:clamp(1.9rem, 3.4vw, 2.6rem); color:var(--navy);}
+  .sec-head p{margin-top:12px;}
+
+  section.pad{padding:100px 0;}
+  .bg-paper{background:var(--paper);}
+  .bg-navy{background:var(--navy-ink); color:#dfe3f5;}
+  .bg-navy .muted{color:#a9aecb;}
+
+  /* ================= ABOUT ================= */
+  .about-grid{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;
+  }
+  .about-text .eyebrow{margin-bottom:10px; display:block;}
+  .about-text h2{font-size:clamp(1.9rem,3.4vw,2.5rem); color:var(--navy); margin-bottom:6px;}
+  .about-text .motto-line{
+    font-family:'Fraunces',serif; font-style:italic; color:var(--red); font-size:1.15rem; margin-top:14px;
+  }
+  .stat-row{display:flex; gap:36px; margin-top:34px; flex-wrap:wrap;}
+  .stat-row div{border-left:3px solid var(--gold); padding-left:14px;}
+  .stat-row strong{display:block; font-family:'Fraunces',serif; font-size:1.5rem; color:var(--navy);}
+  .stat-row span{font-size:.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em;}
+  .about-photo{position:relative;}
+  .about-photo .frame{
+    position:relative; border-radius:4px; overflow:hidden; box-shadow:var(--shadow);
+    border:6px solid var(--paper);
+  }
+  .about-photo .frame img{width:100%; height:420px; object-fit:cover;}
+  .about-photo .tag{
+    position:absolute; bottom:-22px; left:-22px; background:var(--navy); color:#fff;
+    padding:16px 22px; border-radius:3px; box-shadow:var(--shadow);
+    font-family:'Fraunces',serif; font-style:italic; font-size:.95rem; max-width:230px;
+  }
+
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr; gap:44px;}
+    .about-photo .frame img{height:300px;}
+    .about-photo .tag{left:16px;}
+  }
+
+  /* ================= VISION / MISSION ================= */
+  .vm-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  .vm-card{
+    background:var(--paper); border-radius:6px; padding:40px 36px;
+    box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .vm-card::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:6px;
+  }
+  .vm-card.vision::before{background:var(--navy);}
+  .vm-card.mission::before{background:var(--red);}
+  .vm-card .icon{width:44px; height:44px; margin-bottom:18px;}
+  .vm-card h3{color:var(--navy); font-size:1.4rem;}
+  @media (max-width:760px){.vm-grid{grid-template-columns:1fr;}}
+
+  /* ================= WHY US ================= */
+  .why-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:30px;
+  }
+  .why-card{
+    background:var(--paper); padding:34px 28px; border-radius:6px; border:1px solid var(--line);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .why-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+  .why-card .leaf{width:30px; height:26px; fill:var(--gold); margin-bottom:16px;}
+  .why-card h4{color:var(--navy); font-size:1.12rem; margin-bottom:4px;}
+  @media (max-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.why-grid{grid-template-columns:1fr;}}
+
+  /* ================= PROGRAMMES ================= */
+  .prog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .prog-card{
+    background:var(--navy); color:#eef0fb; border-radius:6px; padding:38px 30px;
+    position:relative;
+  }
+  .prog-card:nth-child(2){background:var(--red);}
+  .prog-card:nth-child(3){background:var(--navy-soft);}
+  .prog-card .stage{font-family:'Work Sans',sans-serif; text-transform:uppercase; letter-spacing:.18em; font-size:.7rem; opacity:.75;}
+  .prog-card h3{margin-top:10px; font-size:1.5rem;}
+  .prog-card p{color:#dfe2f4; opacity:.9;}
+  @media (max-width:900px){.prog-grid{grid-template-columns:1fr;}}
+
+  /* ================= GALLERY ================= */
+  .gal-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; grid-template-rows:1fr 1fr; gap:20px; height:560px;
+  }
+  .gal-item{position:relative; border-radius:6px; overflow:hidden; box-shadow:var(--shadow);}
+  .gal-item img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .gal-item:hover img{transform:scale(1.06);}
+  .gal-item.large{grid-row:1 / span 2;}
+  .gal-cap{
+    position:absolute; left:0; right:0; bottom:0; padding:18px 20px 14px;
+    background:linear-gradient(0deg, rgba(11,18,48,.85), transparent);
+    color:#fff; font-size:.85rem; font-weight:600; letter-spacing:.03em;
+  }
+  @media (max-width:820px){
+    .gal-grid{grid-template-columns:1fr; grid-template-rows:none; height:auto;}
+    .gal-item.large{grid-row:auto;}
+    .gal-item{height:280px;}
+  }
+
+  /* ================= ADMISSIONS CTA ================= */
+  .cta-band{
+    background:var(--navy); color:#fff; padding:80px 0; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-band::before{
+    content:""; position:absolute; inset:0; opacity:.08;
+    background-image:radial-gradient(circle at 20% 20%, #fff 0, transparent 40%), radial-gradient(circle at 80% 70%, #fff 0, transparent 35%);
+  }
+  .cta-band .inner{position:relative; z-index:1;}
+  .cta-band h2{color:#fdf9ee; font-size:clamp(1.8rem,3.6vw,2.5rem);}
+  .cta-band p{color:#c7cce6; max-width:520px; margin:14px auto 0;}
+  .cta-band .hero-ctas{justify-content:center; margin-top:32px;}
+
+  /* ================= CONTACT ================= */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+  .contact-card{background:var(--paper); border-radius:6px; padding:20px 26px; display:flex; gap:16px; align-items:flex-start; margin-bottom:18px; box-shadow:0 10px 24px -16px rgba(11,18,48,.25);}
+  .contact-card .ic{width:38px; height:38px; flex:0 0 38px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center;}
+  .contact-card .ic svg{width:18px; height:18px; fill:var(--gold-soft);}
+  .contact-card strong{display:block; color:var(--navy); font-family:'Fraunces',serif; font-size:1.02rem;}
+  .contact-card span, .contact-card a{color:var(--muted); font-size:.92rem;}
+  .map-note{
+    margin-top:6px;
+    background:var(--navy-ink); color:#cfd4ef; border-radius:6px; padding:34px 30px; text-align:center;
+  }
+  .map-note svg{width:34px; height:34px; fill:var(--gold); margin-bottom:12px;}
+  .map-note a{display:inline-block; margin-top:14px; color:var(--gold-soft); font-weight:600; border-bottom:1px solid var(--gold-soft); padding-bottom:2px;}
+
+  .form-card{background:var(--paper); border-radius:6px; padding:38px 34px; box-shadow:var(--shadow);}
+  .form-card h3{color:var(--navy); font-size:1.3rem; margin-bottom:6px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;}
+  .form-card label{display:block; font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:6px;}
+  .form-card input, .form-card textarea, .form-card select{
+    width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:3px; font-family:inherit; font-size:.92rem; background:#fff; color:var(--ink);
+  }
+  .form-card input:focus, .form-card textarea:focus, .form-card select:focus{outline:2px solid var(--gold); outline-offset:1px; border-color:var(--gold);}
+  .form-full{margin-top:16px;}
+  .form-card button{
+    margin-top:22px; width:100%; background:var(--red); color:#fff; border:none; padding:14px; font-weight:700;
+    border-radius:3px; cursor:pointer; font-size:.95rem; letter-spacing:.02em;
+  }
+  .form-card button:hover{background:var(--red-deep);}
+  .form-note{font-size:.78rem; color:var(--muted); margin-top:10px;}
+
+  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;} .form-row{grid-template-columns:1fr;}}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--navy-ink); color:#aeb3d1; padding-top:70px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,.08);}
+  .foot-brand{display:flex; gap:14px; align-items:flex-start;}
+  .foot-brand img{width:54px;}
+  .foot-brand h4{color:#fdf9ee; font-size:1.1rem;}
+  .foot-brand p{color:#8f94b8; font-size:.88rem; max-width:280px;}
+  footer h5{color:#fdf9ee; font-family:'Work Sans',sans-serif; font-size:.82rem; text-transform:uppercase; letter-spacing:.14em; margin-bottom:16px;}
+  footer ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;}
+  footer a:hover{color:var(--gold-soft);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding:26px 0; flex-wrap:wrap; gap:12px; font-size:.8rem;
+  }
+  .foot-motto{
+    text-align:center; padding-bottom:0;
+  }
+  @media (max-width:820px){.foot-grid{grid-template-columns:1fr; gap:34px;}}
+
+  .no-js-note{display:none;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="items">
+      <span>📍 Kamukalo, Kibale, Rakai District, Uganda</span>
+      <span>📞 <a href="tel:+256700000000">+256 700 000 000</a></span>
+      <span>✉️ <a href="mailto:info@campmosesacademy.ug">info@campmosesacademy.ug</a></span>
+    </div>
+    <div class="items">
+      <a href="#admissions">Admissions Open — 2026 Intake</a>
+    </div>
+  </div>
+</div>
+
+<header class="site" id="siteHeader">
+  <div class="nav-inner wrap">
+    <a href="#top" class="brand">
+      <img src="img/badge.png" alt="Camp Moses Junior Academy badge">
+      <span class="name">Camp Moses Junior Academy<small>Kamukalo · Est. Rakai District</small></span>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#programmes">Academics</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#programmes">Academics</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="bg"></div>
+  <div class="hero-content">
+    <img src="img/badge.png" alt="School badge" class="hero-badge">
+    <span class="eyebrow">Nursery &amp; Primary School</span>
+    <h1>Camp Moses<br>Junior Academy</h1>
+    <div class="loc">Kamukalo &nbsp;·&nbsp; Kibale, Rakai District &nbsp;·&nbsp; Uganda</div>
+    <div class="ribbon">Education Is The Key To Success</div>
+    <div class="hero-ctas">
+      <a href="#admissions" class="btn btn-gold">Apply for Admission</a>
+      <a href="#contact" class="btn btn-outline">Visit Our Campus</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<section class="pad bg-paper" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text reveal">
+      <span class="eyebrow">Welcome to Camp Moses</span>
+      <h2>A caring foundation for every learner in Kibale</h2>
+      <p>Camp Moses Junior Academy is a nursery and primary school serving the Kamukalo community in Kibale, Rakai District. We bring together dedicated teachers, a disciplined learning environment, and genuine care for every child who walks through our gate.</p>
+      <p>Guided by our motto, <em>Education Is The Key To Success</em>, we build strong academic foundations while nurturing confidence, character, and community spirit in every learner — from their first day in Baby Class to the day they graduate in Primary Seven.</p>
+      <div class="motto-line">— Education Is The Key To Success</div>
+      <div class="stat-row">
+        <div><strong>Nursery–P.7</strong><span>Full Learning Path</span></div>
+        <div><strong>Qualified</strong><span>Teaching Staff</span></div>
+        <div><strong>Rakai</strong><span>District, Uganda</span></div>
+      </div>
+    </div>
+    <div class="about-photo reveal">
+      <div class="frame"><img src="img/event.jpg" alt="Pupils and staff of Camp Moses Junior Academy at a school function"></div>
+      <div class="tag">"Every child celebrated, every talent nurtured."</div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="laurels">
+        <svg viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+        <span class="eyebrow">Our Foundation</span>
+        <svg class="mirror" viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+      </div>
+      <h2>Vision &amp; Mission</h2>
+      <p>What guides Camp Moses Junior Academy every single day.</p>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card vision reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#152159" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Our Vision</h3>
+        <p>To raise disciplined, knowledgeable, and God-fearing learners from Kamukalo and beyond who are well prepared to succeed in secondary school and in life.</p>
+      </div>
+      <div class="vm-card mission reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#c31d2b" stroke-width="1.6"><path d="M12 3v18M4 8l8-5 8 5M4 8v10l8 5 8-5V8"/></svg>
+        <h3>Our Mission</h3>
+        <p>To provide affordable, quality nursery and primary education in a safe environment — combining strong academics, moral values, and individual attention for every child.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad bg-paper">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why Families Choose Us</span>
+      <h2>What makes Camp Moses different</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <svg class="leaf" viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+        <h4>Qualified, Caring Teachers</h4>
+        <p>A committed teaching staff that knows each learner by name and follows their progress closely.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="leaf" viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+        <h4>Safe, Welcoming Campus</h4>
+        <p>A secure compound in Kamukalo, Kibale, giving parents peace of mind throughout the school day.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="leaf" viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+        <h4>Discipline &amp; Values</h4>
+        <p>Strong moral guidance and structure that shapes respectful, responsible young learners.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="leaf" viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+        <h4>Holistic Growth</h4>
+        <p>Academics balanced with sports, music, and co-curricular activities that build well-rounded pupils.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="leaf" viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+        <h4>Community Rooted</h4>
+        <p>Proudly serving families in Kibale and the wider Rakai District for generations to come.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="leaf" viewBox="0 0 40 34"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+        <h4>Affordable Fees</h4>
+        <p>Quality education at a fair cost, with flexible term-by-term payment support for parents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" style="background:var(--cream);" id="programmes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Academic Programmes</span>
+      <h2>From Baby Class to Primary Seven</h2>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card reveal">
+        <div class="stage">Early Years</div>
+        <h3>Nursery Section</h3>
+        <p>Baby Class, Middle Class and Top Class — building letters, numbers, language, and social skills through play-based learning.</p>
+      </div>
+      <div class="prog-card reveal">
+        <div class="stage">Lower Primary</div>
+        <h3>P.1 – P.3</h3>
+        <p>A strong foundation in literacy, numeracy, and life skills, following the Uganda national primary curriculum.</p>
+      </div>
+      <div class="prog-card reveal">
+        <div class="stage">Upper Primary</div>
+        <h3>P.4 – P.7</h3>
+        <p>Focused subject teaching and exam preparation, guiding every pupil towards the Primary Leaving Examinations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad bg-paper" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Life at Camp Moses</span>
+      <h2>Moments from our school community</h2>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="gal-item large">
+        <img src="img/building.jpg" alt="Camp Moses Junior Academy school building in Kibale">
+        <div class="gal-cap">Our school block in Kamukalo, Kibale</div>
+      </div>
+      <div class="gal-item">
+        <img src="img/event.jpg" alt="School function with pupils and guest at Camp Moses Junior Academy">
+        <div class="gal-cap">Celebrating our pupils together</div>
+      </div>
+      <div class="gal-item">
+        <img src="img/meeting.jpg" alt="Staff and management meeting at Camp Moses Junior Academy">
+        <div class="gal-cap">School leadership at work</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="admissions">
+  <div class="wrap inner">
+    <div class="laurels">
+      <svg viewBox="0 0 40 34" style="fill:var(--gold-soft)"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+      <span class="eyebrow" style="color:var(--gold-soft)">Admissions</span>
+      <svg class="mirror" viewBox="0 0 40 34" style="fill:var(--gold-soft)"><path d="M20 34C6 26 2 14 8 2c4 6 4 14 2 20 6-4 10-12 8-20 8 6 10 18 2 26-4 4-14 6-0 6z"/></svg>
+    </div>
+    <h2>Enrol Your Child at Camp Moses Today</h2>
+    <p>We are receiving applications for Nursery and Primary classes. Visit our campus in Kamukalo, Kibale, or reach out to our office to begin the admission process.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-gold">Start Admission Enquiry</a>
+      <a href="tel:+256700000000" class="btn btn-outline">Call the School Office</a>
+    </div>
+  </div>
+</section>
+
+<section class="pad bg-paper" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Visit or contact Camp Moses Junior Academy</h2>
+      <p>We'd love to welcome you and your child to our school community in Kibale, Rakai District.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg></div>
+          <div><strong>School Address</strong><span>Camp Moses Junior Academy, Kamukalo, Kibale, Rakai District, Uganda</span></div>
+        </div>
+        <div class="contact-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.5c0-.6.4-1 1-1H7.8c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg></div>
+          <div><strong>Phone</strong><span><a href="tel:+256700000000">+256 700 000 000</a> (placeholder — replace with school line)</span></div>
+        </div>
+        <div class="contact-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 12V8.5l-8 6.99-8-6.99V18h16z"/></svg></div>
+          <div><strong>Email</strong><span><a href="mailto:info@campmosesacademy.ug">info@campmosesacademy.ug</a> (placeholder — replace with real address)</span></div>
+        </div>
+        <div class="contact-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 2v2H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H11V2H9zM7 10h10v2H7v-2zm0 4h6v2H7v-2z"/></svg></div>
+          <div><strong>Office Hours</strong><span>Monday – Friday, 8:00 AM – 5:00 PM</span></div>
+        </div>
+        <div class="map-note">
+          <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+          <div>Find us in Kamukalo, Kibale — Rakai District, Uganda</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Kibale%2C+Rakai+District%2C+Uganda" target="_blank" rel="noopener">Open in Google Maps →</a>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <h3>Send an Admission Enquiry</h3>
+        <p>Fill in the form and our office will get back to you.</p>
+        <form action="mailto:info@campmosesacademy.ug" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div>
+              <label for="pname">Parent / Guardian Name</label>
+              <input id="pname" name="Parent Name" type="text" placeholder="Your full name" required>
+            </div>
+            <div>
+              <label for="pphone">Phone Number</label>
+              <input id="pphone" name="Phone" type="tel" placeholder="+256 7XX XXX XXX" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="cname">Child's Name</label>
+              <input id="cname" name="Child Name" type="text" placeholder="Child's full name">
+            </div>
+            <div>
+              <label for="cclass">Class Applying For</label>
+              <select id="cclass" name="Class">
+                <option>Baby Class</option>
+                <option>Middle Class</option>
+                <option>Top Class</option>
+                <option>P.1</option><option>P.2</option><option>P.3</option>
+                <option>P.4</option><option>P.5</option><option>P.6</option><option>P.7</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-full">
+            <label for="msg">Message</label>
+            <textarea id="msg" name="Message" rows="4" placeholder="Tell us a little about your enquiry"></textarea>
+          </div>
+          <button type="submit">Submit Enquiry</button>
+          <div class="form-note">This form opens your email app to send the enquiry directly to the school office.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="img/badge.png" alt="Camp Moses Junior Academy badge">
+        <div>
+          <h4>Camp Moses Junior Academy</h4>
+          <p>Kamukalo, Kibale, Rakai District, Uganda. Nurturing learners from Nursery to Primary Seven since our founding — because education is the key to success.</p>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#programmes">Academics</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Kamukalo, Kibale, Rakai District</li>
+          <li><a href="tel:+256700000000">+256 700 000 000</a></li>
+          <li><a href="mailto:info@campmosesacademy.ug">info@campmosesacademy.ug</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Camp Moses Junior Academy. All rights reserved.</span>
+      <span>Education Is The Key To Success</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header shadow
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // Mobile menu toggle
+  const burger = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
